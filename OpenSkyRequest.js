@@ -1,33 +1,11 @@
-var planeIDs = [{id :"a07721"}];
+var planeIDs = [{id :"4841d6"}];
 
 var markers = {}; 
 addPlane();
 setInterval(getPlanePos, 1000);
 
 
-document.addEventListener('keydown', onKeyDown)
-var hexcode = document.getElementById("hexcode");
-function onKeyDown(e){
-    if(e.keyCode == 72 && !hexcode.hidden){
-        hexcode.hidden = true;
-        document.getElementById("button").hidden = true;
-        document.getElementsByTagName("h3")[0].hidden = true;
-        hexcode.value = "";
-        document.getElementById("map").style.position = "unset";
-        
-    }else if(e.keyCode == 72 && hexcode.hidden){
-      document.getElementById("map").style.position = "absolute";
-        hexcode.hidden = false;
-        document.getElementById("button").hidden = false;
-        document.getElementsByTagName("h3")[0].hidden = false;
-    }
-}
 
-function TextInput() {
-    planeIDs.push({id: hexcode.value});
-    addPlane();
-
-}
 function addPlane(){
 for (var i = 0; i < planeIDs.length; i++) {
     var plane = planeIDs[i];
