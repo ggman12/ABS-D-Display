@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+    <meta charset="UTF-8">
+    
+    <script src='https://api.mapbox.com/mapbox.js/v3.2.0/mapbox.js'></script>
+    <link href='https://api.mapbox.com/mapbox.js/v3.2.0/mapbox.css' rel='stylesheet' />
+    <script type = "text/javascript" src='leaflet.rotatedMarker.js'></script>
+
+  <style>
+      html, body, #map {height: 100%; width: 100%; overflow:hidden}
+      #map{margin:0px 0px 0px 0px;
+         };
+      
+      </style>
+    <title>MAP</title>
+  </head>
+  <body>
+    <h3>Press H to toggle inputs</h3>
+    <input type="text" placeholder="Mode S Code" id="hexcode">
+    <input type="submit" onclick="TextInput()" id="button">
+    <!-- <h3 id = "feedback">feed</h3> -->
+    <div id = "map"></div>
+    <script type="text/javascript" src="MapMaker.js"></script>
+    <script type="text/javascript" src="OpenSkyRequest.js"></script>
+    
+
+  
+  </body>
+</html>
