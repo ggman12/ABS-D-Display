@@ -1,4 +1,4 @@
-var planeIDs = [{id :"a1bebd"},{id: "a3524e"}];
+var planeIDs = [{id :"a07721"}];
 
 var markers = {}; 
 addPlane();
