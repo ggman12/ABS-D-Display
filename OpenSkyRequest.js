@@ -2,7 +2,7 @@ var planeIDs = [{id :"a07721"}];
 
 var markers = {}; 
 addPlane();
-setInterval(getPlanePos, 3000);
+setInterval(getPlanePos, 1000);
 
 
 document.addEventListener('keydown', onKeyDown)
