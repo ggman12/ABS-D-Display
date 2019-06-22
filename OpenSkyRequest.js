@@ -1,26 +1,9 @@
-var planeIDs = [{id :"4841d6"}];
 
-var markers = {}; 
-addPlane();
 setInterval(getPlanePos, 1000);
 
 
-
-function addPlane(){
-for (var i = 0; i < planeIDs.length; i++) {
-    var plane = planeIDs[i];
-   
-
-    
-    if(markers[plane.id] == null){
-    markers[plane.id] = L.marker([0,0], {icon:turbopropIcon}).addTo(map);
-}
-}
-  
-  console.log(markers);
-}
 async function getPlanePos(){ 
-
+if(planeIDs!= undefined && planeIDs.length){
 for (var i = 0; i < planeIDs.length; i++) {
     var url = "https://opensky-network.org/api/states/all?icao24="+planeIDs[i].id;
     
@@ -36,7 +19,6 @@ for (var i = 0; i < planeIDs.length; i++) {
 
 }else{
   
-    console.log("here")
   // document.getElementById("feedback").textContent = "OpenSky found plane";
   
   states = data.states[0];
@@ -49,6 +31,7 @@ for (var i = 0; i < planeIDs.length; i++) {
   markers[planeIDs[i].id].setLatLng([latitude,longitude]);
   markers[planeIDs[i].id].setRotationAngle(angle);
   
+}
 }
 }
 
