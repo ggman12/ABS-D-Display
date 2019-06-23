@@ -1,7 +1,10 @@
 var planeIDs;
 var markers = {}; 
+var list = document.getElementById("PlaneUL");
+
 if(localStorage.getItem('planes') != null){
     planeIDs = JSON.parse(localStorage.getItem('planes'));
+    //PlaneListStartup(planeIDs);
     addPlane();
 }
 
@@ -36,4 +39,15 @@ function addPlane(){
  }
  
 }
+}
+function removePlane(){
+
+}
+function PlaneListStartup(planes){
+    console.log(planes);
+    for(var i =0; i<planes.length; i++){
+        var newLI = document.createElement("li");
+        list.appendChild(newLI);
+        newLI.value = planes[0];
+    }
 }

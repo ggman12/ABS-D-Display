@@ -9,7 +9,7 @@
     <script type = "text/javascript" src='leaflet.rotatedMarker.js'></script>
 
   <style>
-      html, body, #map {height: 100%; width: 100%; overflow:hidden}
+      html, body, #map {height: 100%; width: 100%; position: unset}
       #map{margin:0px 0px 0px 0px;
          };
       
@@ -17,10 +17,18 @@
     <title>MAP</title>
   </head>
   <body>
-    <h3>Press H to toggle inputs</h3>
     <input type="text" placeholder="Mode S Code" id="hexcode">
     <input type="submit" onclick="TextInput()" id="button">
-    <!-- <h3 id = "feedback">feed</h3> -->
+    
+    
+    <ul id="PlaneUL">
+        <li>Hit the gym</li>
+        <li class="checked">Pay bills</li>
+        <li>Meet George</li>
+        <li>Buy eggs</li>
+        <li>Read a book</li>
+        <li>Organize office</li>
+      </ul>
     <div id = "map"></div>
     <script type="text/javascript" src="MapMaker.js"></script>
     <script type="text/javascript" src="LocalStorage.js"></script>
