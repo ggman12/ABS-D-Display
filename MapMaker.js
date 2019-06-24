@@ -7,12 +7,15 @@ var map = L.mapbox.map('map')
    .setView([42.3601, -71.0589], 8)
    .addLayer(L.mapbox.styleLayer('mapbox://styles/goodejonahgmailcom/cjx0oogokixj41cpburxs21kx'))
 
+   map.addControl(new customControl());
+   window.addEventListener('DOMContentLoaded', map);
 var turbopropIcon = L.icon({
     iconUrl: 'turboprop.svg',
     iconSize: [50, 50],
     iconAnchor: [25, 16],
   
 });
+
 
 
 function CurrentLocation() {

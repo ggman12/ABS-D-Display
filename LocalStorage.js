@@ -1,53 +1,55 @@
 var planeIDs;
-var markers = {}; 
+function Plane(id, marker) {
+    this.id = id;
+    this.marker = marker;
+  }
+var Planes = [];
 var list = document.getElementById("PlaneUL");
-
 if(localStorage.getItem('planes') != null){
-    planeIDs = JSON.parse(localStorage.getItem('planes'));
+    Planes = JSON.parse(localStorage.getItem('planes'));
+    ListChange();
     //PlaneListStartup(planeIDs);
-    addPlane();
 }
 
 function TextInput() {
-    var hexcode = document.getElementById("hexcode");
-    if (planeIDs == null) {
-     planeIDs = [{id: hexcode.value}];   
-     
-     localStorage.setItem('planes', JSON.stringify(planeIDs));
-     
-    }else{
-        planeIDs.push({id: hexcode.value});
-        localStorage.setItem('planes', JSON.stringify(planeIDs));
-        
-    } 
+    var hexcode = document.getElementById("hexcode").value;
     
-    
+    var myPlane = new Plane(hexcode, null);
+    Planes.push(myPlane);
+    ListChange();
+    UpdateLocalPlane()
+}
 
-  addPlane();
-
-}
-function addPlane(){
- for (var i = 0; i < planeIDs.length; i++) {
-     var plane = planeIDs[i];
-    
- 
-     
-     if(markers[plane.id] == null){
-     markers[plane.id] = L.marker([0,0], {icon:turbopropIcon}).addTo(map);
-     console.log(markers);
-     
- }
- 
-}
-}
 function removePlane(){
 
 }
-function PlaneListStartup(planes){
-    console.log(planes);
-    for(var i =0; i<planes.length; i++){
-        var newLI = document.createElement("li");
-        list.appendChild(newLI);
-        newLI.value = planes[0];
+
+function UpdateLocalPlane(){
+    var stringPlanes = JSON.stringify(Planes);
+    localStorage.setItem('planes', stringPlanes);
+}
+function ListChange(){
+    clearList(false);
+    
+    
+    
+    for(var i = 0; i < Planes.length; i++){
+            
+        var newli = document.createElement("li");
+        //newLI.setAttribute("id", Planes[i].id);
+
+            newli.appendChild(document.createTextNode(Planes[i].id));
+            list.appendChild(newli);
+        }
+}
+function clearList(clearStorage){
+    while(list.firstChild){
+        
+        list.removeChild(list.firstChild);
+        
+    }
+    if(clearStorage == true){
+    Planes.length = 0;
+    localStorage.removeItem("planes");
     }
 }
