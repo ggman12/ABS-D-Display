@@ -5,7 +5,7 @@ var containter = L.DomUtil.create('div');
 containter.id = "container";
 
 caret.onclick = function(){
-    containter.removeChild(caret);        
+    containter.removeChild(caret); 
     buttonVisibility(true);
 
     
@@ -15,7 +15,8 @@ var hideDiv = L.DomUtil.create('input');
 var hideCursor = L.DomUtil.create('input');
 hideCursor.type = 'button';
         hideCursor.onclick = function(){
-        
+            document.getElementsByClassName("leaflet-control-zoom")[0].style.visibility = "hidden";       
+
             document.body.requestPointerLock();
 
         };
@@ -93,6 +94,8 @@ function lockChangeAlert() {
       buttonVisibility(false, false);
     } else {
     //unlocked
+      document.getElementsByClassName("leaflet-control-zoom")[0].style.visibility = "visible";       
+
       buttonVisibility(true,true);
 
       //document.removeEventListener("mousemove", false);
