@@ -6,9 +6,70 @@
     <title>Plane Input</title>
     
   </head>
+  
+  <body>
+    
+
+    <input type="text" placeholder="Mode S Code" id="hexcode">
+    <input type="text" placeholder="Aircraft Name" id="name">
+
+    <input type="submit" onclick="TextInput()" id="button">
+    <input type="submit" onclick="clearList(true)" value="Clear" >
+    <a href="index.html">Go to Display</a>
+    
+    
+      <table class="table table-striped table-bordered"
+    id="bootstrap_git_demo">
+    <thead>
+      <tr>
+        <th>Mode S Code</th>
+        <th>Plane Name</th>
+        
+        <th>Status</th>
+        <th>Edit</th>
+      </tr>
+    </thead>
+    <tbody id ="tbodyMain">
+      <tr id = "planeRow">
+        <td>Element Alfa</td>
+        <td>Selector A</td>
+        <td>Area A</td>
+        
+        <td>
+          <button title="" type="button"
+            class="btn btn-danger remove show_tip"
+            data-original-title="Remove from list">
+            <i class="fa fa-trash-o"></i>
+          </button>
+        </td>
+      </tr>
+      
+
+    </tbody>
+
+  </table>
+
+
+    </table>
+
+      <script type='text/javascript'
+      src='http://code.jquery.com/jquery-1.10.1.js'></script>
+    <link rel="stylesheet" type="text/css"
+      href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css"
+      href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+    <script type='text/javascript'
+      src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css"
+      href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <script type="text/javascript" src="LocalStorage.js"></script>
+    <script type="text/javascript" src="TableManager.js"></script>
+    <!-- <script type="text/javascript" src="OpenSkyRequest.js"></script> -->
+
+  </body>
   <style>
     body {
-      max-width: 500px;
+      max-width: 700px;
       margin: auto;
       margin-top: 50px;
     }
@@ -18,19 +79,4 @@
    
     }
     </style>
-  <body>
-    
-
-    <input type="text" placeholder="Mode S Code" id="hexcode">
-    <input type="submit" onclick="TextInput()" id="button">
-    <input type="submit" onclick="clearList(true)" value="Clear" >
-    <a href="index.html">Go to Display</a>
-    
-    <ul id="PlaneUL">
-        
-      </ul>
-      <script type="text/javascript" src="LocalStorage.js"></script>
-
-
-  </body>
 </html>
