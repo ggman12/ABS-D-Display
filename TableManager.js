@@ -4,27 +4,14 @@ var tableRow = document.getElementById("planeRow");
 clearList();
 populateTable();
 
-$(window).load(function(){
-    
-    $(function () {
-        $("table#bootstrap_git_demo").on("click", ".remove", function () {
-            var deletedTr = $(this).closest('tr')
-            removePlane(deletedTr[0].cells[0].innerHTML);
-            deletedTr.remove();
 
-        });
-    });
-    $(function () {
-        $(".show_tip").tooltip({
-            container: 'body'
-        });
-    });
-    $(document).click(function () {
-        $('.tooltip').remove();
-        $('[title]').tooltip();
-    });
-    });
 
+    function trashClick(button){
+        var deletedTr = button.parentNode.parentNode;
+        console.log(deletedTr);
+        removePlane(deletedTr.cells[0].innerHTML);
+        deletedTr.remove();
+    }
     function CreateRow(hexcode, name){
         var clone = tableRow.cloneNode(true);
         table.appendChild(clone);  
@@ -32,10 +19,10 @@ $(window).load(function(){
         clone.cells[1].innerHTML = name;
 
  
-        //clone.rows[0] = hexcode;
+     
 
     }
-// 
+
 
     function deleteFromTable(){
 
