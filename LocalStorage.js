@@ -1,8 +1,9 @@
 var planeIDs;
-function Plane(id, marker, name) {
+function Plane(id, marker, name, tailNumber) {
     this.id = id;
     this.marker = marker;
     this.name = name;
+    this.tailNumber = tailNumber; 
   }
 var Planes = [];
 
