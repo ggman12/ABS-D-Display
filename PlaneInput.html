@@ -17,7 +17,7 @@
     <input type="text" placeholder="Mode S Code" id="hexcode">
     <input type="text" placeholder="Aircraft Name" id="name">
 
-    <input type="submit" onclick="TextInput()" id="button">
+    <input type="submit" onclick="TextInput(document.getElementById('hexcode').value, document.getElementById('name').value)" id="button">
     <input type="submit" onclick="clearList(true)" value="Clear" >
     <a href="index.html">Go to Display</a>
     
@@ -26,8 +26,8 @@
     id="bootstrap_git_demo">
     <thead>
       <tr>
-        <th>Mode S Code</th>
-        <th>Plane Name</th>
+        <th>Mode S Code(hex)</th>
+        <th>Tail Number</th>
         
         <th>Edit</th>
       </tr>
@@ -69,10 +69,12 @@
 
   
 </body>
-    <script type="text/javascript" src="PopulatePlanes.js"></script>
+<script type="text/javascript" src="PopulatePlanes.js"></script>
+
+    <script type="text/javascript" src="TableManager.js"></script>
 
     <script type="text/javascript" src="LocalStorage.js"></script>
-    <script type="text/javascript" src="TableManager.js"></script>
+
     <!-- <script type="text/javascript" src="OpenSkyRequest.js"></script> -->
 
   </body>

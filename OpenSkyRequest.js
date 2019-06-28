@@ -1,5 +1,4 @@
-var Planes = JSON.parse(localStorage.getItem('planes'));
-setInterval(getPlanePos, 1000);
+setInterval(getPlanePos, 2000);
 
 
 async function getPlanePos(){ 
@@ -12,7 +11,7 @@ for (var i = 0; i < Planes.length; i++) {
     }
     
   
-    var url = "https://opensky-network.org/api/states/all?icao24="+ Planes[i].id;
+    var url = "https://@opensky-network.org/api/states/all?icao24="+ Planes[i].id;
     
   const response = await fetch(
       url

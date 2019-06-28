@@ -1,9 +1,9 @@
 var planeIDs;
-function Plane(id, marker, name, tailNumber) {
+function Plane(id,tailNumber,name, marker) {
     this.id = id;
-    this.marker = marker;
-    this.name = name;
     this.tailNumber = tailNumber; 
+    this.name = name;
+    this.marker = marker;
   }
 var Planes = [];
 
@@ -12,17 +12,27 @@ var Planes = [];
 
 if(localStorage.getItem('planes') != null){
     Planes = JSON.parse(localStorage.getItem('planes'));
+    if(document.getElementById("bootstrap_git_demo")!= null){
+    populateTable();
+    }
     //CreateRow();
     //PlaneListStartup(planeIDs);
+}  else{
+  loadJSON();
+  populateTable();
 }
 
-function TextInput() {
-    var hexcode = document.getElementById("hexcode").value;
-    var name = document.getElementById("name").value;
-    var myPlane = new Plane(hexcode, null, name);
+function TextInput(hexcode, tailNumber) {
+    
+    var myPlane = new Plane(hexcode, tailNumber);
+    
     Planes.push(myPlane);
-    CreateRow(hexcode, name);
+    
     UpdateLocalPlane()
+
+    if(document.getElementById("bootstrap_git_demo")!= null){
+    CreateRow(hexcode, tailNumber);
+    }
 }
 
 function removePlane(id){

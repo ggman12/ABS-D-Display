@@ -2,7 +2,6 @@ var table = document.getElementById("tbodyMain");
 var tableRow = document.getElementById("planeRow");
 
 clearList();
-populateTable();
 
 
 
@@ -12,11 +11,11 @@ populateTable();
         removePlane(deletedTr.cells[0].innerHTML);
         deletedTr.remove();
     }
-    function CreateRow(hexcode, name){
+    function CreateRow(hexcode, tailNumber){
         var clone = tableRow.cloneNode(true);
         table.appendChild(clone);  
         clone.cells[0].innerHTML = hexcode;
-        clone.cells[1].innerHTML = name;
+        clone.cells[1].innerHTML = tailNumber;
 
  
      
