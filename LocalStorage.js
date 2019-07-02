@@ -1,12 +1,13 @@
 var planeIDs;
-function Plane(id,tailNumber,name, marker) {
+function Plane(id,tailNumber,name, marker, status, promise) {
     this.id = id;
     this.tailNumber = tailNumber; 
     this.name = name;
     this.marker = marker;
+    this.status = status;
   }
 var Planes = [];
-
+// loadJSON();
 
 
 
@@ -18,20 +19,20 @@ if(localStorage.getItem('planes') != null){
     //CreateRow();
     //PlaneListStartup(planeIDs);
 }  else{
-  loadJSON();
-  populateTable();
+    // loadJSON();
+   populateTable();
 }
 
 function TextInput(hexcode, tailNumber) {
-    
-    var myPlane = new Plane(hexcode, tailNumber);
-    
+    let spaceRemovedHexcode = hexcode.replace(/\s/g, '');
+    var myPlane = new Plane(spaceRemovedHexcode, tailNumber);
+    myPlane.status = true;
     Planes.push(myPlane);
     
     UpdateLocalPlane()
 
     if(document.getElementById("bootstrap_git_demo")!= null){
-    CreateRow(hexcode, tailNumber);
+    CreateRow(spaceRemovedHexcode, tailNumber);
     }
 }
 
@@ -63,6 +64,15 @@ function UpdateLocalPlane(){
 }
 }
 
+function addMarkerToPlanes(){
+  for (var i = 0; i < Planes.length; i++) {
+    if(Planes[i].marker == null){
+      Planes[i].marker = L.marker([0,0], {icon: turbopropIcon}).addTo(map);
+      
+    }
+    
+  }
 
+}
 
 
