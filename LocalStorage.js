@@ -10,7 +10,6 @@ var Planes = [];
 // loadJSON();
 
 
-
 if(localStorage.getItem('planes') != null){
     Planes = JSON.parse(localStorage.getItem('planes'));
     if(document.getElementById("bootstrap_git_demo")!= null){
@@ -19,8 +18,8 @@ if(localStorage.getItem('planes') != null){
     //CreateRow();
     //PlaneListStartup(planeIDs);
 }  else{
-    // loadJSON();
-   populateTable();
+  loadEastAeroJSON();
+  populateTable();
 }
 
 function TextInput(hexcode, tailNumber) {
@@ -58,7 +57,7 @@ function UpdateLocalPlane(){
  function populateTable(){
     if(Planes != undefined && Planes.length>0){
         for (var i = 0; i < Planes.length; i++) {
-          CreateRow(Planes[i].id, Planes[i].name);
+          CreateRow(Planes[i].id, Planes[i].tailNumber);
             
         }
 }

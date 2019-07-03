@@ -4,6 +4,12 @@ caret.style.height = '20px';
 var containter = L.DomUtil.create('div');
 containter.id = "container";
 
+
+var text = L.DomUtil.create('h5');
+text.innerHTML = "";
+text.style.color = "red";
+text.style.display = "inline";
+text.style.marginRight = "15px";
 caret.onclick = function(){
     containter.removeChild(caret); 
     buttonVisibility(true);
@@ -51,7 +57,7 @@ var customControl = L.Control.Settings = L.Control.extend({
     },
     onAdd: function(map) {
         
-        
+        containter.appendChild(text);
         containter.appendChild(addPlane);
         
         containter.appendChild(hideDiv);
@@ -72,12 +78,15 @@ function buttonVisibility(state, caretVisibility){
         addPlane.style.visibility = "visible";
         hideDiv.style.visibility = "visible";
         hideCursor.style.visibility = "visible";
+        text.style.visibility = "visible";
         
     }
     else{
         addPlane.style.visibility = "hidden";
         hideDiv.style.visibility = "hidden";
         hideCursor.style.visibility = "hidden";
+        text.style.visibility = "hidden";
+
 
     }
     if(caretVisibility){
@@ -101,3 +110,13 @@ function lockChangeAlert() {
       //document.removeEventListener("mousemove", false);
     }
   }
+
+function updateCount(){
+    let count = 0;
+    Planes.forEach(element => {
+        if(element.status == false){
+            count++;
+        }
+    });
+    text.innerHTML = count + " Planes Failed";
+}

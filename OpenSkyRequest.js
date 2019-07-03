@@ -4,21 +4,28 @@ const proxyurl = "https://cors-anywhere.herokuapp.com/";
 setInterval(setupPromises, 3000);
   function setupPromises(){
   for (var i = 0; i < Planes.length; i++) {
-    var myPlane = Planes[i];
+    let myPlane = Planes[i];
     if(myPlane.status == true){
 
     var url = "https://@opensky-network.org/api/states/all?icao24="+myPlane.id;
     getPlanePos(url).then(
       results => {
-
+        console.log("sucess "+myPlane.id);
         updateMarker(myPlane.marker, results.latitude, results.longitude, results.angle)
+
       }).catch(function(e) {
-        myPlane.status = false; 
+        // if(myPlane.status!= false){
+        //   myPlane.status = false; 
+        // }
+        //setInterval(updateStatus, 100000, myPlane)
         console.log("here error" + myPlane.id);
+        console.log(e);
         //console.log(e); // "oh, no!"
       })
-    
+
   }
+  updateCount();
+
 }
 }
 
@@ -72,8 +79,15 @@ async function getPlanePos(url){
 function updateMarker(Plane, latitude, longitude,angle){
   Plane.setLatLng([latitude,longitude]);
   Plane.setRotationAngle(angle);
-
+  console.log("marker");
 }
 
 
+function updateStatus(Plane){
+  if(Plane.status!= true){
+  console.log("ran Update Status");
+  Plane.status = true;
+  updateCount();
 
+}
+}
