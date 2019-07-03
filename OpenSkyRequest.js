@@ -12,11 +12,11 @@ setInterval(setupPromises, 3000);
       results => {
         console.log("sucess "+myPlane.id);
         updateMarker(myPlane.marker, results.latitude, results.longitude, results.angle)
-
+        
       }).catch(function(e) {
-        // if(myPlane.status!= false){
-        //   myPlane.status = false; 
-        // }
+         if(myPlane.status!= false){
+           myPlane.status = false; 
+         }
         //setInterval(updateStatus, 100000, myPlane)
         console.log("here error" + myPlane.id);
         console.log(e);
